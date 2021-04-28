@@ -11,7 +11,7 @@ $(NAME): cfunge.o stack.o grid.o
 	$(CC) -o $(NAME) $^ $(CFLAGS) $(LDFLAGS)
 
 clean:
-	rm cfunge *.o
+	rm -f cfunge *.o
 
 run: cfunge
 	./$<
