@@ -4,10 +4,11 @@
 # @file
 # @version 0.1
 
-CFLAGS += -Og -ggdb -Wall -Wpedantic -std=c99
+NAME := cfunge
+CFLAGS += -Og -ggdb -Wall -Wpedantic -std=c11
 
-cfunge: cfunge.o stack.o
-	$(CC) -o cfunge cfunge.o stack.o $(CFLAGS) $(LDFLAGS)
+$(NAME): cfunge.o stack.o grid.o
+	$(CC) -o $(NAME) $^ $(CFLAGS) $(LDFLAGS)
 
 clean:
 	rm cfunge *.o
