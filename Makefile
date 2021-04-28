@@ -4,14 +4,19 @@
 # @file
 # @version 0.1
 
-CFLAGS += -Og -ggdb
+CFLAGS += -Og -ggdb -Wall -Wpedantic -std=c99
 
-cfunge: cfunge.o
-	$(CC) -o cfunge cfunge.o $(CFLAGS) $(LDFLAGS)
+cfunge: cfunge.o stack.o
+	$(CC) -o cfunge cfunge.o stack.o $(CFLAGS) $(LDFLAGS)
 
 clean:
-	rm cfunge
+	rm cfunge *.o
 
-.PHONY: clean
+run: cfunge
+	./cfunge
+
+.PHONY: clean run
+
+all: cfunge
 
 # end
