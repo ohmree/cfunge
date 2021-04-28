@@ -14,10 +14,13 @@ clean:
 	rm cfunge *.o
 
 run: cfunge
-	./cfunge
+	./$<
 
-.PHONY: clean run
+valgrind: cfunge
+	valgrind ./$<
 
 all: cfunge
+
+.PHONY: clean run valgrind
 
 # end
